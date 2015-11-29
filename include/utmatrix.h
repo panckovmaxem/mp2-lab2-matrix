@@ -62,11 +62,11 @@ public:
 template <class ValType>
 TVector<ValType>::TVector(int s, int si)
 {
-	if ((si<0) || (si>MAX_VECTOR_SIZE)
+	if ((si<0) || (si>MAX_VECTOR_SIZE))
 	{
 		throw"Error!";
 	}
-	if ((s<0) || (s>MAX_MATRIX_SIZE)
+	if ((s<0) || (s>MAX_MATRIX_SIZE))
 	{
 		throw"Error!";
 	}
@@ -109,7 +109,7 @@ TVector<ValType>::~TVector()
 template <class ValType> // доступ
 ValType& TVector<ValType>::operator[](int pos)
 {
-	if ((pos<0) || (pos>=(Size+StartIndex)
+	if ((pos<0) || (pos>=(Size+StartIndex)))
 	{
 		throw "Error!";
 	}
@@ -179,12 +179,12 @@ TVector<ValType>& TVector<ValType>::operator=(const TVector &v)
 		{
 			delete[]pVector;
 			Size = v.Size;
-			pVector = new Valtupe[Size];
+			pVector = new ValType[Size];
 		}
 		StartIndex = v.StartIndex;
 		for (int i = 0; i < Size; i++)
 		{
-			pVector = v.pVector;
+			pVector[i] = v.pVector[i];
 		}
 	}
 	return *this;
