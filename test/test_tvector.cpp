@@ -128,37 +128,112 @@ TEST(TVector, can_assign_vectors_of_equal_size)
 
 TEST(TVector, assign_operator_change_vector_size)
 {
-  ADD_FAILURE();
+	TVector<int> a(4);
+	a[0] = 5;
+	a[1] = 4;
+	a[2] = 3;
+	a[3] = 2;
+	TVector<int> b(5);
+	b[0] = 1;
+	b[1] = 2;
+	b[2] = 3;
+	b[3] = 4;
+	b[4] = 5;
+	a = b;
+	EXPECT_EQ(5, a.GetSize());
 }
 
 TEST(TVector, can_assign_vectors_of_different_size)
 {
-  ADD_FAILURE();
+	TVector<int> a(4);
+	a[0] = 5;
+	a[1] = 4;
+	a[2] = 3;
+	a[3] = 2;
+	TVector<int> b(5);
+	b[0] = 1;
+	b[1] = 2;
+	b[2] = 3;
+	b[3] = 4;
+	b[4] = 5;
+	a = b;
+	EXPECT_EQ(b, a);
 }
 
 TEST(TVector, compare_equal_vectors_return_true)
 {
-  ADD_FAILURE();
+	TVector<int> a(5);
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	a[3] = 4;
+	a[4] = 5;
+	TVector<int> b(5);
+	b[0] = 1;
+	b[1] = 2;
+	b[2] = 3;
+	b[3] = 4;
+	b[4] = 5;
+	EXPECT_EQ(true , a==b);
 }
 
 TEST(TVector, compare_vector_with_itself_return_true)
 {
-  ADD_FAILURE();
+	TVector<int> a(5);
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	a[3] = 4;
+	a[4] = 5;
+	EXPECT_EQ(true , a == a);
 }
 
 TEST(TVector, vectors_with_different_size_are_not_equal)
 {
-  ADD_FAILURE();
+	TVector<int> a(4);
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	a[3] = 4;
+	TVector<int> b(5);
+	b[0] = 1;
+	b[1] = 2;
+	b[2] = 3;
+	b[3] = 4;
+	b[4] = 5;
+	EXPECT_EQ(true, a != b);
 }
 
 TEST(TVector, can_add_scalar_to_vector)
 {
-  ADD_FAILURE();
+	TVector<int> a(5);
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	a[3] = 4;
+	a[4] = 5;
+	a = a + 1;
+	EXPECT_EQ(2, a[0]);
+	EXPECT_EQ(3, a[1]);
+	EXPECT_EQ(4, a[2]);
+	EXPECT_EQ(5, a[3]);
+	EXPECT_EQ(6, a[4]);
 }
 
 TEST(TVector, can_subtract_scalar_from_vector)
 {
-  ADD_FAILURE();
+	TVector<int> a(5);
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	a[3] = 4;
+	a[4] = 5;
+	a = a - 1;
+	EXPECT_EQ(0, a[0]);
+	EXPECT_EQ(1, a[1]);
+	EXPECT_EQ(2, a[2]);
+	EXPECT_EQ(3, a[3]);
+	EXPECT_EQ(4, a[4]);
 }
 
 TEST(TVector, can_multiply_scalar_by_vector)
