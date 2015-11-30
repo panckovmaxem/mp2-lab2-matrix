@@ -238,36 +238,130 @@ TEST(TVector, can_subtract_scalar_from_vector)
 
 TEST(TVector, can_multiply_scalar_by_vector)
 {
-  ADD_FAILURE();
+	TVector<int> a(5);
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	a[3] = 4;
+	a[4] = 5;
+	a = a * 2;
+	EXPECT_EQ(2, a[0]);
+	EXPECT_EQ(4, a[1]);
+	EXPECT_EQ(6, a[2]);
+	EXPECT_EQ(8, a[3]);
+	EXPECT_EQ(10, a[4]);
 }
 
 TEST(TVector, can_add_vectors_with_equal_size)
 {
-  ADD_FAILURE();
+	TVector<int> a(5);
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	a[3] = 4;
+	a[4] = 5;
+	TVector<int> b(5);
+	b[0] = 6;
+	b[1] = 7;
+	b[2] = 8;
+	b[3] = 9;
+	b[4] = 10;
+	TVector<int> c(5);
+	c = a + b;
+	EXPECT_EQ(7  ,  c[0]);
+	EXPECT_EQ(9  ,  c[1]);
+	EXPECT_EQ(11 ,  c[2]);
+	EXPECT_EQ(13 ,  c[3]);
+	EXPECT_EQ(15 ,  c[4]);
 }
 
 TEST(TVector, cant_add_vectors_with_not_equal_size)
 {
-  ADD_FAILURE();
+	TVector<int> a(4);
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	a[3] = 4;
+	TVector<int> b(5);
+	b[0] = 1;
+	b[1] = 2;
+	b[2] = 3;
+	b[3] = 4;
+	b[4] = 5;
+	ASSERT_ANY_THROW(a + b);
 }
 
 TEST(TVector, can_subtract_vectors_with_equal_size)
 {
-  ADD_FAILURE();
+	TVector<int> a(5);
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	a[3] = 4;
+	a[4] = 5;
+	TVector<int> b(5);
+	b[0] = 10;
+	b[1] = 9;
+	b[2] = 8;
+	b[3] = 7;
+	b[4] = 6;
+	TVector<int> c(5);
+	c = b - a;
+	EXPECT_EQ(9, c[0]);
+	EXPECT_EQ(7, c[1]);
+	EXPECT_EQ(5, c[2]);
+	EXPECT_EQ(3, c[3]);
+	EXPECT_EQ(1, c[4]);
 }
 
 TEST(TVector, cant_subtract_vectors_with_not_equal_size)
 {
-  ADD_FAILURE();
+	TVector<int> a(4);
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	a[3] = 4;
+	TVector<int> b(5);
+	b[0] = 1;
+	b[1] = 2;
+	b[2] = 3;
+	b[3] = 4;
+	b[4] = 5;
+	ASSERT_ANY_THROW(a - b);
 }
 
 TEST(TVector, can_multiply_vectors_with_equal_size)
 {
-  ADD_FAILURE();
+	TVector<int> a(5);
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	a[3] = 4;
+	a[4] = 5;
+	TVector<int> b(5);
+	b[0] = 10;
+	b[1] = 9;
+	b[2] = 8;
+	b[3] = 7;
+	b[4] = 6;
+	int c;
+	c = a * b;
+	EXPECT_EQ(110, c);
 }
 
 TEST(TVector, cant_multiply_vectors_with_not_equal_size)
 {
-  ADD_FAILURE();
+	TVector<int> a(4);
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 3;
+	a[3] = 4;
+	TVector<int> b(5);
+	b[0] = 1;
+	b[1] = 2;
+	b[2] = 3;
+	b[3] = 4;
+	b[4] = 5;
+	ASSERT_ANY_THROW(a * b);
 }
 

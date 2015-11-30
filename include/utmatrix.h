@@ -230,13 +230,10 @@ TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 	{
 		throw "Error!";
 	}
-	else
+	TVector tmp(*this);
+	for (int i = 0; i < Size; i++)
 	{
-		TVector tmp(*this);
-		for (i = 0; i < Size; i++)
-		{
-			tmp.pVector[i] = tmp.pVector[i] + v.pVector[i];
-		}
+		tmp.pVector[i] = tmp.pVector[i] + v.pVector[i];
 	}
 	return tmp;
 } /*-------------------------------------------------------------------------*/
@@ -248,13 +245,10 @@ TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v)
 	{
 		throw "Error!";
 	}
-	else
+	TVector tmp(*this);
+	for (int i = 0; i < Size; i++)
 	{
-		TVector tmp(*this);
-		for (i = 0; i < Size; i++)
-		{
-			tmp.pVector[i] = tmp.pVector[i] - v.pVector[i];
-		}
+		tmp.pVector[i] = tmp.pVector[i] - v.pVector[i];
 	}
 	return tmp;
 } /*-------------------------------------------------------------------------*/
@@ -267,12 +261,9 @@ ValType TVector<ValType>::operator*(const TVector<ValType> &v)
 	{
 		throw "Error!";
 	}
-	else
+	for (int i = 0; i < Size; i++)
 	{
-		for (i = 0; i < Size; i++)
-		{
-			SkalProz = SkalProz + v.pVector[i]* pVector[i];
-		}
+		SkalProz = SkalProz + v.pVector[i]* pVector[i];
 	}
 	return SkalProz;
 } /*-------------------------------------------------------------------------*/
