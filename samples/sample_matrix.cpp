@@ -11,21 +11,47 @@
 
 void main()
 {
-  TMatrix<int> a(5), b(5), c(5);
-  int i, j;
-
-  setlocale(LC_ALL, "Russian");
-  cout << "Тестирование программ поддержки представления треугольных матриц"
-    << endl;
-  for (i = 0; i < 5; i++)
-    for (j = i; j < 5; j++ )
+	TMatrix<int> m1(5), m2(5), m3(5), m4(5);
+	TVector<int> v1(5), v2(5), v3(5), v4(5);
+	int i, j, o1;
+	setlocale(LC_ALL, "Russian");
+	cout << "Тестирование программ поддержки представления треугольных матриц" << endl;
+	cout << "Что хотите проверить?" << endl;
+	cout << "1.Матрицы" << endl;
+	cout << "2.Вектора" << endl;
+	cin >> o1;
+	if (o1 == 1)
+	{
+		for (i = 0; i < 5; i++)
+			for (j = i; j < 5; j++)
+			{
+				m1[i][j] = (i * 10 + j) * 100;
+				m2[i][j] = i * 10 + j;
+			}
+		m3 = m1 + m2;
+		m4 = m1 - m2;
+		cout << "Matrix a = " << endl << m1 << endl;
+		cout << "Matrix b = " << endl << m2 << endl;
+		cout << "Matrix c = a + b" << endl << m3 << endl;
+		cout << "Matrix c = a - b" << endl << m4 << endl;
+	}
+	else if (o1 == 2)
+	{
+		for (i = 0; i < 5; i++)
+		{
+			v1[i] = (i * 10) * 100;
+			v2[i] = i * 10;
+		}
+		v3 = v1 + v2;
+		v4 = v1 - v2;
+		cout << "Matrix a = " << endl << v1 << endl;
+		cout << "Matrix b = " << endl << v2 << endl;
+		cout << "Matrix c = a + b" << endl << v3 << endl;
+		cout << "Matrix c = a - b" << endl << v4 << endl;
+	}
+    else
     {
-      a[i][j] =  i * 10 + j;
-      b[i][j] = (i * 10 + j) * 100;
+	    throw 'Fail';
     }
-  c = a + b;
-  cout << "Matrix a = " << endl << a << endl;
-  cout << "Matrix b = " << endl << b << endl;
-  cout << "Matrix c = a + b" << endl << c << endl;
 }
 //---------------------------------------------------------------------------
